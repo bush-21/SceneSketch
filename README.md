@@ -43,6 +43,70 @@ unzip big-lama.zip
 
 Now you are all set and ready to move to the next stage (Run Demo).
 
+## Installation via conda
+Thanks [huuquan1994](https://github.com/yael-vinker/SceneSketch/issues/2) provide this solution.
+### Install the required packages
+
+```
+conda activate clipascene
+
+git clone https://github.com/yael-vinker/SceneSketch
+cd SceneSketch/
+
+pip install -r requirements.txt
+```
+
+### Install pydiffvg and OpenAI CLIP packages
+```
+git clone https://github.com/BachiLi/diffvg
+cd diffvg/
+
+git submodule update --init --recursive
+conda install -y numpy
+conda install -y scikit-image
+conda install -y -c anaconda cmake
+conda install -y -c conda-forge ffmpeg
+pip install svgwrite
+pip install svgpathtools
+pip install cssutils
+pip install numba
+pip install torch-tools
+pip install visdom
+
+# conda install cmake==3.22.1    # if your cmake version <= 3.12.0
+DIFFVG_CUDA=1 python setup.py install # need to use DIFFVG_CUDA=1 to run with NVIDIA GPU
+```
+
+### OpenAI CLIP
+```
+pip install ftfy regex tqdm
+
+cd ..
+cd CLIP_/
+python setup.py install
+pip install protobuf==3.20.1
+```
+
+### Next, download the U2Net weights:
+```bash
+wget https://huggingface.co/akhaliq/CLIPasso/resolve/main/u2net.pth --output-document=U2Net_/saved_models/u2net.pth
+```
+and the LAMA model:
+```bash
+cd lama/
+curl -L $(yadisk-direct https://disk.yandex.ru/d/ouP6l8VJ0HpMZg) -o big-lama.zip
+unzip big-lama.zip
+```
+
+### One more thing
+if you meet `torch version` problem,it is recommend to upgrad your torch version, such as
+```
+pip install torch==2.2.1 torchvision==0.17.1 torchaudio==2.2.1 --index-url https://download.pytorch.org/whl/cu121
+```
+
+if you meet `libstdc++.so.6` problem, you can refer to [KiKiLQQ](https://blog.csdn.net/kikiLQQ/article/details/129238099).
+
+
 
 ## Run Demo
 ### Image Preprocessing
