@@ -45,7 +45,8 @@ Now you are all set and ready to move to the next stage (Run Demo).
 
 ## Installation via conda
 Thanks [huuquan1994](https://github.com/yael-vinker/SceneSketch/issues/2) provide this solution.
-### Install the required packages
+
+Install the required packages
 
 ```
 conda activate clipascene
@@ -56,7 +57,8 @@ cd SceneSketch/
 pip install -r requirements.txt
 ```
 
-### Install pydiffvg and OpenAI CLIP packages
+Install pydiffvg and OpenAI CLIP packages
+
 ```
 git clone https://github.com/BachiLi/diffvg
 cd diffvg/
@@ -77,7 +79,8 @@ pip install visdom
 DIFFVG_CUDA=1 python setup.py install # need to use DIFFVG_CUDA=1 to run with NVIDIA GPU
 ```
 
-### OpenAI CLIP
+OpenAI CLIP
+
 ```
 pip install ftfy regex tqdm
 
@@ -87,7 +90,7 @@ python setup.py install
 pip install protobuf==3.20.1
 ```
 
-### Next, download the U2Net weights:
+Next, download the U2Net weights:
 ```bash
 wget https://huggingface.co/akhaliq/CLIPasso/resolve/main/u2net.pth --output-document=U2Net_/saved_models/u2net.pth
 ```
