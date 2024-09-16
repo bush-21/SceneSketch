@@ -109,6 +109,13 @@ pip install torch==2.2.1 torchvision==0.17.1 torchaudio==2.2.1 --index-url https
 
 if you meet `libstdc++.so.6` problem, you can refer to [KiKiLQQ](https://blog.csdn.net/kikiLQQ/article/details/129238099).
 
+if you meet 
+```
+AttributeError: module 'torch.nn.functional' has no attribute '_pad'
+```
+change this `pad=F._pad` to `pad=F.pad` in auxilary.py
+
+
 
 
 ## Run Demo
